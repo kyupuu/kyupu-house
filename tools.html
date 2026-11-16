@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ごみツール集 | きゅぷぅのおうち</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- PyScriptの読み込み -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="site-title">きゅぷぅのおうち</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="game.html">ゲーム制作日記</a></li>
+        <li><a href="gallery.html">画廊「きゅぷぅ」</a></li>
+        <li><a href="tools.html" class="active">ごみツール集</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>🗑️ ごみツール集（Python実験室）</h2>
+      <p>プログラミングの勉強で作ったPythonのミニツールやガチャを、そのままブラウザで動かせるように置いていく物置部屋です。</p>
+    </section>
+
+    <section class="card">
+      <h2>🐣 超極ひよこガチャ</h2>
+      <p>超極ひよこガチャを何回ひきますか？（数字を入力）</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        <input type="text" id="gacha-input" placeholder="例: 10" style="
+          width: 140px; padding: 10px; font-size: 1.1rem;
+          border: 2px solid #7cc6fe; border-radius: 10px; text-align: center;
+        ">
+        <br><br>
+        <button id="gacha-btn" style="
+          background-color: #7cc6fe; color: white; border: none;
+          padding: 12px 30px; font-size: 1.1rem; font-weight: bold;
+          border-radius: 25px; cursor: pointer;
+        ">ガチャを回す！</button>
+      </div>
+
+      <!-- ここにPythonのprint結果が出る！ -->
+      <div id="output" style="
+        background-color: #2c3e50; color: #ecf0f1;
+        font-family: monospace; padding: 15px; border-radius: 12px;
+        min-height: 100px; max-height: 350px; overflow-y: auto;
+        white-space: pre-wrap; line-height: 1.6;
+      ">※ボタンを押してね！</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 きゅぷぅのおうち</p>
+  </footer>
+
+  <!-- ▼ Pythonコード -->
+  <script type="py">
+    import random
+    from pyscript import document, when
+
+    @when("click", "#gacha-btn")
+    def run_gacha(event):
+        results = []
+        def my_print(*args):
+            results.append(" ".join(map(str, args)))
+
+        check0 = 0  
+        check1 = 0  
+        check2 = 0  
+        check3 = 0  
+
+        user_input = document.querySelector("#gacha-input").value
+        my_print('あなたの回答⇛', user_input)
+
+        if user_input.isdigit():
+            a = int(user_input)
+
+            if a == 0:
+                my_print('ひかないんかい！')
+            elif a == 67:
+                my_print('ろくななええて')
+            elif a == 810:
+                my_print('ええてそれ')
+            elif a == 114514:
+                my_print('いうのもつかれたわ')
+            else:
+                my_print('（ホッ。なんもない数字か作者が想定してないかやな）')
+
+            for i in range(a):
+                gacha = random.randint(1, 100)
+                if gacha <= 3:
+                    my_print('★☆★でんせつゴッド神ひよこ★☆★')
+                    check0 = check0 + 1
+                elif gacha <= 10:
+                    my_print('超絶あたりひよこ！！！')
+                    check1 = check1 + 1
+                elif gacha <= 40:
+                    my_print('ひよこレア')
+                    check2 = check2 + 1
+                else:
+                    my_print('にわとり')
+                    check3 = check3 + 1
+
+            my_print('結果⇒', 'でんせつひよこ数:', check0, '超絶あたりひよこ数:', check1, 'ひよこレア数:', check2, 'にわとり数:', check3)
+
+        else:
+            my_print('ガチャ引きたいなら数字入れてくれ')
+
+        document.querySelector("#output").innerText = "\n".join(results)
+  </script>
+</body>
+</html>

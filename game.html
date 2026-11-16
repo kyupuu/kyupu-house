@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム制作日記 | きゅぷぅのおうち</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">きゅぷぅのおうち</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="game.html" class="active">ゲーム制作日記</a></li>
+        <li><a href="gallery.html">画廊「きゅぷぅ」</a></li>
+        <li><a href="tools.html">ごみツール集</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>🎮 ゲーム制作日記について</h2>
+      <p>現在制作中のオリジナルゲームの開発状況や、システム・キャラクターのアイデアなどを記録していく開発室です。</p>
+    </section>
+
+    <!-- 🆕 新しい制作ログはここにカードを追加していく！ -->
+    <section class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 style="margin: 0; font-size: 1.2rem; border: none; padding: 0;">制作ログ #01 - 制作スタート！</h2>
+        <span style="color: #888; font-size: 0.9rem;">2026/11/16</span>
+      </div>
+      <p>オリジナルRPGのメニュー画面やバトルシステムをこだわり抜いて作成中！</p>
+      
+      <!-- 画像を入れたいときはこうやって class="zoomable-img" をつけるだけで、タップ拡大に対応するぞ！ -->
+      <!-- <div style="text-align: center; margin: 15px 0;">
+        <img src="sample.png" class="zoomable-img" style="max-height: 250px;" alt="スクショ">
+      </div> -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 きゅぷぅのおうち</p>
+  </footer>
+
+  <!-- 画像拡大用モーダル -->
+  <div id="image-modal" onclick="closeModal()">
+    <img id="modal-img">
+  </div>
+  <script>
+    function openModal(src) {
+      document.getElementById("image-modal").style.display = "flex";
+      document.getElementById("modal-img").src = src;
+    }
+    function closeModal() {
+      document.getElementById("image-modal").style.display = "none";
+    }
+    document.addEventListener("click", function(e) {
+      if (e.target.classList.contains("zoomable-img")) {
+        openModal(e.target.src);
+      }
+    });
+  </script>
+</body>
+</html>

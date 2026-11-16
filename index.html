@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ホーム | きゅぷぅのおうち</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">きゅぷぅのおうち</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="game.html">ゲーム制作日記</a></li>
+        <li><a href="gallery.html">画廊「きゅぷぅ」</a></li>
+        <li><a href="tools.html">ごみツール集</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>ようこそ！</h2>
+      <p>ここは「きゅぷぅ」の個人サイトです。自作ゲームの開発記録や、描いたイラストの展示、勢いで作った謎システムなどを気ままに置いています。ゆっくりしていってね！</p>
+    </section>
+
+    <!-- 🎮 現在制作中のゲーム ＆ パッケージ ＆ 進行度ゲージ -->
+    <section class="card">
+      <h2>🎮 現在制作中のタイトル（仮）ファイナル・フレア</h2>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 15px;">
+        <!-- パッケージ画像（クリックで拡大！画像がないときはアイコンや仮画像でもOK） -->
+        <div style="flex: 1; min-width: 180px; text-align: center;">
+          <img src="package.png" class="zoomable-img" alt="ゲームパッケージ" style="border: 3px solid #7cc6fe; background-color: #f4faff;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\' %23888\' font-size=\'14\'>パッケージ画像</text></svg>'">
+        </div>
+
+        <!-- 詳細 ＆ 進行度 -->
+        <div style="flex: 2; min-width: 250px;">
+          <p><strong>ジャンル：</strong> オリジナルRPG</p>
+          <p>こだわり抜いたメニュー画面や、ド迫力のバトルを制作中！完成を目指して開発進行中！</p>
+          
+          <!-- 進行度ゲージ（ここの width: 45% の数字を変えるとゲージが伸び縮みする！） -->
+          <div style="margin-top: 15px;">
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; color: #2c3e50;">
+              <span>全体制作進度</span>
+              <span>5%</span>
+            </div>
+            <div style="background-color: #e1f0ff; border-radius: 10px; height: 18px; overflow: hidden;">
+              <div style="background-color: #7cc6fe; width: 5%; height: 100%; border-radius: 10px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>管理人プロフィール</h2>
+      <p><strong>名前：</strong> きゅぷぅ</p>
+      <p><strong>一言：</strong> ゲーム作ったり絵を描いたり、謎のツールを作ったりする個人サイト!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 きゅぷぅのおうち</p>
+  </footer>
+
+  <!-- 画像拡大用モーダル -->
+  <div id="image-modal" onclick="closeModal()">
+    <img id="modal-img">
+  </div>
+  <script>
+    function openModal(src) {
+      document.getElementById("image-modal").style.display = "flex";
+      document.getElementById("modal-img").src = src;
+    }
+    function closeModal() {
+      document.getElementById("image-modal").style.display = "none";
+    }
+    // zoomable-img クラスがついた画像を自動で拡大対応させる
+    document.addEventListener("click", function(e) {
+      if (e.target.classList.contains("zoomable-img")) {
+        openModal(e.target.src);
+      }
+    });
+  </script>
+</body>
+</html>

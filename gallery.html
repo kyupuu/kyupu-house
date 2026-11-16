@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>画廊「きゅぷぅ」 | きゅぷぅのおうち</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">きゅぷぅのおうち</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="game.html">ゲーム制作日記</a></li>
+        <li><a href="gallery.html" class="active">画廊「きゅぷぅ」</a></li>
+        <li><a href="tools.html">ごみツール集</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>🎨 画廊「きゅぷぅ」へようこそ</h2>
+      <p>館長きゅぷぅが描き上げたオリジナルイラストやファンアートなどを展示する由緒正しきギャラリーです。画像をタップすると大きく拡大して見られるぞ！</p>
+    </section>
+
+    <section class="card">
+      <h2>展示作品（準備中）</h2>
+      <p>現在、最初の展示作品を額縁に入れて準備しています。お楽しみに！</p>
+      
+      <!-- 絵を描いたら、こんな感じで置くだけで自動で拡大対応になる！ -->
+      <!-- <div style="text-align: center; margin-top: 15px;">
+        <img src="illust.png" class="zoomable-img" alt="イラスト作品">
+      </div> -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 きゅぷぅのおうち</p>
+  </footer>
+
+  <!-- 画像拡大用モーダル -->
+  <div id="image-modal" onclick="closeModal()">
+    <img id="modal-img">
+  </div>
+  <script>
+    function openModal(src) {
+      document.getElementById("image-modal").style.display = "flex";
+      document.getElementById("modal-img").src = src;
+    }
+    function closeModal() {
+      document.getElementById("image-modal").style.display = "none";
+    }
+    document.addEventListener("click", function(e) {
+      if (e.target.classList.contains("zoomable-img")) {
+        openModal(e.target.src);
+      }
+    });
+  </script>
+</body>
+</html>
