@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ゲーム制作日記 | きゅぷぅのおうち</title>
+  <title>ゲーム制作室 | きゅぷぅのおうち</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,23 +19,80 @@
   </header>
 
   <main>
+    <!-- ① もともとある見出しや説明 -->
     <section class="card">
-      <h2>🎮 ゲーム制作日記について</h2>
-      <p>現在制作中のオリジナルゲームの開発状況や、システム・キャラクターのアイデアなどを記録していく開発室です。</p>
+      <h2>🎮 ゲーム制作室について</h2>
+      <p>現在制作中のオリジナルRPGの開発状況や、世界観・キャラクター設定などを記録していくページです。</p>
     </section>
 
-    <!-- 🆕 新しい制作ログはここにカードを追加していく！ -->
+    <!-- ② パッケージ写真 -->
+    <section class="card" style="text-align: center;">
+      <h2 style="text-align: left;">📦 パッケージ画像</h2>
+      <img src="package.png" class="zoomable-img" alt="パッケージ画像" style="max-width: 100%; max-height: 280px; border-radius: 10px; border: 3px solid #7cc6fe; background-color: #f4faff;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'180\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'14\'>パッケージ画像 (package.png)</text></svg>'">
+      <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">※画像をタップで拡大</p>
+    </section>
+
+    <!-- ③ あらすじ -->
+    <section class="card">
+      <h2>📖 あらすじ</h2>
+      <div style="background-color: #f8fbff; padding: 15px; border-left: 4px solid #7cc6fe; border-radius: 6px; line-height: 1.8;">
+        <p style="margin: 0;">
+          ここにストーリーのあらすじが入るぞ！世界観や冒険の導入を語るスペース。
+        </p>
+      </div>
+    </section>
+
+    <!-- ④ キャラ紹介枠 1人目（立ち絵＋ドット絵 ＆ 説明） -->
+    <section class="card">
+      <h2>👥 キャラクター紹介 ①</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 15px;">
+        <!-- 立ち絵 ＆ ゲーム内ドット絵 -->
+        <div style="flex: 1; min-width: 150px; text-align: center;">
+          <img src="chara1.png" class="zoomable-img" alt="キャラ1立ち絵" style="width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 3px solid #7cc6fe; background-color: #f4faff;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'110\' height=\'110\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'11\'>立ち絵</text></svg>'">
+          <div style="margin-top: 8px;">
+            <img src="dot1.png" class="zoomable-img" alt="ドット絵" style="height: 40px; image-rendering: pixelated;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\'><rect width=\'100%\' height=\'100%\' fill=\'%23eee\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'10\'>ドット絵</text></svg>'">
+          </div>
+        </div>
+        <!-- キャラ説明 -->
+        <div style="flex: 2; min-width: 220px;">
+          <h3 style="margin: 0 0 5px 0; font-size: 1.15rem; color: #2c3e50;">キャラクター名 A</h3>
+          <span style="display: inline-block; background-color: #e1f0ff; color: #2980b9; font-size: 0.8rem; font-weight: bold; padding: 2px 10px; border-radius: 10px; margin-bottom: 8px;">ロール / クラス</span>
+          <p style="font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            ここにキャラクターの詳しい説明や特徴、性格などのテキストが入ります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ キャラ紹介枠 2人目（立ち絵＋ドット絵 ＆ 説明） -->
+    <section class="card">
+      <h2>👥 キャラクター紹介 ②</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 15px;">
+        <!-- 立ち絵 ＆ ゲーム内ドット絵 -->
+        <div style="flex: 1; min-width: 150px; text-align: center;">
+          <img src="chara2.png" class="zoomable-img" alt="キャラ2立ち絵" style="width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 3px solid #7cc6fe; background-color: #f4faff;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'110\' height=\'110\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'11\'>立ち絵</text></svg>'">
+          <div style="margin-top: 8px;">
+            <img src="dot2.png" class="zoomable-img" alt="ドット絵" style="height: 40px; image-rendering: pixelated;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\'><rect width=\'100%\' height=\'100%\' fill=\'%23eee\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'10\'>ドット絵</text></svg>'">
+          </div>
+        </div>
+        <!-- キャラ説明 -->
+        <div style="flex: 2; min-width: 220px;">
+          <h3 style="margin: 0 0 5px 0; font-size: 1.15rem; color: #2c3e50;">キャラクター名 B</h3>
+          <span style="display: inline-block; background-color: #ffeaa7; color: #d35400; font-size: 0.8rem; font-weight: bold; padding: 2px 10px; border-radius: 10px; margin-bottom: 8px;">ロール / クラス</span>
+          <p style="font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            ここに2人目のキャラクターの詳しい説明や特徴、性格などのテキストが入ります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ ログブログ詳細（制作ログや開発メモ） -->
     <section class="card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <h2 style="margin: 0; font-size: 1.2rem; border: none; padding: 0;">制作ログ #01 - 制作スタート！</h2>
+        <h2 style="margin: 0; font-size: 1.2rem; border: none; padding: 0;">📝 制作ログ #01</h2>
         <span style="color: #888; font-size: 0.9rem;">2026/11/16</span>
       </div>
-      <p>オリジナルRPGのメニュー画面やバトルシステムをこだわり抜いて作成中！</p>
-      
-      <!-- 画像を入れたいときはこうやって class="zoomable-img" をつけるだけで、タップ拡大に対応するぞ！ -->
-      <!-- <div style="text-align: center; margin: 15px 0;">
-        <img src="sample.png" class="zoomable-img" style="max-height: 250px;" alt="スクショ">
-      </div> -->
+      <p>ここに詳細な開発進捗や、システム・画面のこだわりポイントなどのログを書くことができます！</p>
     </section>
   </main>
 
