@@ -4,6 +4,50 @@
   <meta charset="UTF-8">
   <title>ゲーム制作室 | きゅぷぅのおうち</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* キャラカード用の重ね合わせレイアウト調整 */
+    .chara-card-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      background: #ffffff;
+      border: 2px solid #e1f0ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+    /* 画像を重ねるエリアのコンテナ */
+    .chara-img-container {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+      margin: 0 auto;
+    }
+    /* 後ろの大きなイラスト */
+    .chara-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #7cc6fe;
+      background-color: #f4faff;
+    }
+    /* 手前に重ねる小さなドット絵 */
+    .chara-fg-dot {
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      height: 45px;
+      image-rendering: pixelated;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 2px solid #7cc6fe;
+      border-radius: 6px;
+      padding: 2px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -42,17 +86,19 @@
       </div>
     </section>
 
-    <!-- ④ キャラ紹介枠 1人目（立ち絵＋ドット絵 ＆ 説明） -->
+    <!-- ④ キャラ紹介枠 1人目（裏に大きな画像、手前にドット絵が重なる仕様！） -->
     <section class="card">
-      <h2>👥 キャラクター紹介 ①</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 15px;">
-        <!-- 立ち絵 ＆ ゲーム内ドット絵 -->
-        <div style="flex: 1; min-width: 150px; text-align: center;">
-          <img src="chara1.png" class="zoomable-img" alt="キャラ1立ち絵" style="width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 3px solid #7cc6fe; background-color: #f4faff;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'110\' height=\'110\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'11\'>立ち絵</text></svg>'">
-          <div style="margin-top: 8px;">
-            <img src="dot1.png" class="zoomable-img" alt="ドット絵" style="height: 40px; image-rendering: pixelated;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\'><rect width=\'100%\' height=\'100%\' fill=\'%23eee\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'10\'>ドット絵</text></svg>'">
-          </div>
+      <h2>👥 キャラクター紹介</h2>
+
+      <div class="chara-card-box">
+        <!-- 重ね合わせ画像エリア -->
+        <div class="chara-img-container">
+          <!-- 後ろの大きなイラスト（タップで拡大！） -->
+          <img src="chara1.png" class="zoomable-img chara-bg-img" alt="キャラ1立ち絵" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'140\' height=\'140\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'11\'>立ち絵(大)</text></svg>'">
+          <!-- 手前に重なる小さなドット絵 -->
+          <img src="dot1.png" class="zoomable-img chara-fg-dot" alt="ドット絵" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'40\'><rect width=\'100%\' height=\'100%\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23666\' font-size=\'9\'>ドット</text></svg>'">
         </div>
+
         <!-- キャラ説明 -->
         <div style="flex: 2; min-width: 220px;">
           <h3 style="margin: 0 0 5px 0; font-size: 1.15rem; color: #2c3e50;">キャラクター名 A</h3>
@@ -62,19 +108,15 @@
           </p>
         </div>
       </div>
-    </section>
 
-    <!-- ⑤ キャラ紹介枠 2人目（立ち絵＋ドット絵 ＆ 説明） -->
-    <section class="card">
-      <h2>👥 キャラクター紹介 ②</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 15px;">
-        <!-- 立ち絵 ＆ ゲーム内ドット絵 -->
-        <div style="flex: 1; min-width: 150px; text-align: center;">
-          <img src="chara2.png" class="zoomable-img" alt="キャラ2立ち絵" style="width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 3px solid #7cc6fe; background-color: #f4faff;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'110\' height=\'110\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'11\'>立ち絵</text></svg>'">
-          <div style="margin-top: 8px;">
-            <img src="dot2.png" class="zoomable-img" alt="ドット絵" style="height: 40px; image-rendering: pixelated;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\'><rect width=\'100%\' height=\'100%\' fill=\'%23eee\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'10\'>ドット絵</text></svg>'">
-          </div>
+      <!-- ⑤ キャラ紹介枠 2人目 -->
+      <div class="chara-card-box">
+        <!-- 重ね合わせ画像エリア -->
+        <div class="chara-img-container">
+          <img src="chara2.png" class="zoomable-img chara-bg-img" alt="キャラ2立ち絵" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'140\' height=\'140\'><rect width=\'100%\' height=\'100%\' fill=\'%23e1f0ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23888\' font-size=\'11\'>立ち絵(大)</text></svg>'">
+          <img src="dot2.png" class="zoomable-img chara-fg-dot" alt="ドット絵" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'40\'><rect width=\'100%\' height=\'100%\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23666\' font-size=\'9\'>ドット</text></svg>'">
         </div>
+
         <!-- キャラ説明 -->
         <div style="flex: 2; min-width: 220px;">
           <h3 style="margin: 0 0 5px 0; font-size: 1.15rem; color: #2c3e50;">キャラクター名 B</h3>
@@ -84,6 +126,7 @@
           </p>
         </div>
       </div>
+
     </section>
 
     <!-- ⑥ ログブログ詳細（制作ログや開発メモ） -->
